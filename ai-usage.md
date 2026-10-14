@@ -2,59 +2,43 @@
 
 ## 1. Purpose
 
-AI assistance was used to support selected activities during the QA Technical Assessment. The purpose was to improve the organization, clarity, and completeness of the testing documentation while keeping the assessment requirements and QA reasoning as the primary basis for the work.
+AI tools were used as a supporting resource during selected activities in this QA Technical Assessment. The main purpose was to assist with organizing ideas, reviewing test coverage, and improving the clarity of technical documentation.
 
-## 2. AI-Assisted Activities
+AI was used to support the testing process, while the assessment requirements, test evidence, and final decisions remained the basis for the submitted work.
 
-### Task 1 – Local Fund Transfer
+## 2. Areas of Assistance
 
-AI assistance was used for the following activities:
+AI assistance was used selectively across the following areas:
 
-- Reviewing and structuring requirement clarification questions.
-- Drafting working assumptions for ambiguous requirements.
-- Identifying potential risks and their business impacts.
-- Organizing test scenarios into a structured test case format.
-- Reviewing test coverage, deliberate omissions, automation candidates, and release readiness criteria.
-- Improving the clarity and consistency of written documentation.
+- **Requirement Analysis and Test Design:** Reviewing requirements, identifying potential risks, and organizing test scenarios and assumptions.
+- **Exploratory Testing and Defect Reporting:** Improving the structure and clarity of testing findings and defect documentation.
+- **API Testing:** Supporting the organization of Postman tests, response validations, data-driven testing, and negative scenarios.
+- **Automation Design:** Reviewing maintainability, scalability, CI/CD integration, parallel execution, and reporting considerations.
+- **Documentation:** Improving the clarity, consistency, and presentation of assessment deliverables.
 
-## 3. Representative Prompt Summaries
+## 3. Representative Prompt
 
-The following summaries describe the types of prompts used during the work. They are summaries, not necessarily verbatim copies of the original prompts.
+The following is a representative example of the type of assistance requested during the assessment:
 
-| Activity | Prompt Summary |
-|---|---|
-| Requirement analysis | Help analyze the Local Fund Transfer requirements and identify clarification questions and assumptions. |
-| Risk assessment | Identify important functional, financial, security, and operational risks and explain their potential impact. |
-| Test case design | Create a maximum of 12 test cases with preconditions, test data, expected results, and execution status. |
-| Coverage review | Identify deliberate omissions, recommend automation versus manual testing, and define release safety criteria. |
-| Documentation | Organize the assessment artifacts and improve the clarity and consistency of the Markdown and spreadsheet documentation. |
+> Review the assessment requirements and suggest relevant test scenarios, potential risks, assumptions, and improvements to the testing approach. Explain the reasoning behind the suggestions and identify areas that require clarification.
 
-## 4. Suggestions Retained
+This example summarizes the general approach and is not intended to be a verbatim record of every prompt used.
 
-AI suggestions were used as a starting point for organizing the analysis and documentation, including:
+## 4. Review and Validation
 
-- Structuring assumptions and clarification questions.
-- Considering duplicate transaction prevention and recovery after connectivity or processing failures.
-- Covering transaction limits, OTP validation, fees, balance checks, and notification failures.
-- Separating automated regression candidates from scenarios better suited to manual or exploratory testing.
-- Using a clear test case format and explicit execution statuses.
+AI-generated suggestions were reviewed against the assessment requirements and available testing evidence before being incorporated into the deliverables.
 
-## 5. Suggestions Modified or Not Treated as Confirmed Requirements
+- Suggestions relevant to the assessment scope were retained or adapted as appropriate.
+- Unsupported assumptions were not treated as confirmed business requirements.
+- API assertions were aligned with the observed behavior of the selected service.
+- Test execution results were based on actual test runs rather than AI-generated assumptions.
 
-Some AI-generated suggestions were treated as proposals rather than confirmed requirements.
+## 5. Limitations and Responsibility
 
-- **Bank-specific behavior:** Suggested behavior was not treated as official bank policy unless supported by the assessment requirements or explicitly documented as an assumption.
-- **Unconfirmed settlement rules:** Settlement timing and recovery behavior were identified as requiring confirmation where the requirements did not specify the exact rules.
-- **Fee and limit interpretation:** The assumed fee calculation and treatment of fees against transaction limits require confirmation from the Business Analyst/Product Owner.
-- **Test execution results:** Test cases were marked `Not Run` because test execution results must not be fabricated.
-- **Scope and coverage:** Suggested scenarios were prioritized and organized according to the assessment scope and the stated test case limit.
+AI-generated content may require clarification or correction. Therefore, suggestions were treated as recommendations rather than authoritative requirements.
 
-## 6. Validation and Responsibility
+The candidate remains responsible for the accuracy, completeness, and final submission of all assessment deliverables.
 
-AI-generated content was used as assistance, not as a substitute for QA judgment. Requirements, assumptions, test data, expected results, and recommendations should be reviewed against the original assessment instructions.
+## 6. Transparency
 
-The final submission remains the responsibility of the candidate. No test execution, external system validation, or business approval is claimed unless supported by actual evidence.
-
-## 7. Future Tasks
-
-If AI assistance is used for additional tasks, this document will be updated to reflect the relevant activities, representative prompts, suggestions retained or rejected, and the rationale for those decisions.
+This document summarizes the main areas in which AI assistance was used and the approach taken to review its suggestions. It is intended to provide a clear and proportionate disclosure of AI usage throughout the assessment.
