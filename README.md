@@ -1,79 +1,73 @@
 # QA Technical Assessment
 
 ## Overview
-This repository contains my solutions for the QA Technical Assessment. The work covers test analysis, test case design, exploratory testing, API testing, automation strategy, and release readiness assessment, as applicable to each task.
+
+This repository contains my solutions for the QA Technical Assessment, demonstrating a structured and risk-based approach to software quality assurance.
+
+The assessment covers requirement analysis, test design, exploratory testing, API validation, and automation strategy, with an emphasis on identifying risks, validating expected behavior, and producing clear, maintainable documentation.
 
 ## Repository Structure
 
 ```text
-QA-Technical-Assessment/
+QA-Technical-Assesment-Coorb/
 ├── README.md
 ├── ai-usage.md
-├── task-1/
-│   ├── README.md
-│   ├── task-1-analysis.md
-│   └── test-cases.xlsx
-├── task-2/
-├── task-3/
-├── task-4/
-└── task-5/
+├── Task 1/
+├── Task 2/
+├── Task 3/
+└── Task 4/
 ```
 
-*Note: The structure above represents the planned organization. Additional task folders and files will be added as the assessment progresses.*
+## Task Summary
 
-## Task Status
-
-| Task | Description | Status |
+| Task | Focus Area | Status |
 |---|---|---|
-| Task 1 | Local Fund Transfer – Analysis, Risk Assessment, and Test Cases | In Progress |
-| Task 2 | Exploratory Testing and Bug Reporting | Not Started |
-| Task 3 | API Testing | Not Started |
-| Task 4 | Automation Design | Not Started |
-| Task 5 | Release Readiness Assessment | Not Started |
+| Task 1 | Requirement Analysis and Test Case Design | Completed |
+| Task 2 | Exploratory Testing and Defect Reporting | Completed |
+| Task 3 | API Testing | Completed |
+| Task 4 | Automation Design and Scalability | Completed |
 
-## Task 1 – Local Fund Transfer
+## Task 1 — Requirement Analysis and Test Case Design
 
-Task 1 focuses on testing a local fund transfer feature in a mobile banking application.
+Analyzed the banking transfer requirements, identified clarification points, documented assumptions, and designed test scenarios based on business and financial risks.
 
-The scope includes:
-- Reviewing requirements and identifying ambiguities.
-- Documenting assumptions and clarification questions for the Business Analyst/Product Owner.
-- Identifying risks and their potential business impact.
-- Designing test cases covering positive, negative, boundary, and failure scenarios.
-- Defining deliberate test coverage omissions.
-- Recommending automation candidates and manual testing activities.
-- Establishing release readiness criteria.
+The coverage considers transaction limits, balance validation, OTP behavior, duplicate transactions, negative scenarios, and failure handling.
 
-### Key Assumptions
-The initial analysis uses explicit working assumptions where requirements are unclear. These include transfer limits, OTP behavior, fee calculation, transaction idempotency, failure recovery, and notification handling.
+## Task 2 — Exploratory Testing and Defect Reporting
 
-Assumptions that require confirmation from the Business Analyst/Product Owner will remain identified as pending confirmation rather than being treated as confirmed bank policy.
+Focused on exploring application behavior, identifying potential defects, and documenting findings with clear reproduction steps, expected versus actual results, and impact analysis.
 
-### Test Execution Status
-The designed test cases are initially marked **Not Run**. This indicates that the test cases have been documented but execution results have not yet been recorded.
+## Task 3 — API Testing
 
-## Time Spent
+Implemented API tests using Postman against the public ExchangeRate-API endpoint:
 
-The time spent on each task will be recorded based on the actual effort required to complete the work.
+`https://open.er-api.com/v6/latest/USD`
 
-| Task | Time Spent |
-|---|---|
-| Task 1 | To be updated |
-| Task 2 | To be updated |
-| Task 3 | To be updated |
-| Task 4 | To be updated |
-| Task 5 | To be updated, if applicable |
+The solution includes:
 
-## Deliberate Omissions
+- Response status, structure, and response-time validation.
+- Currency-rate checks and data-driven execution using CSV input.
+- Environment variables and reusable request configuration.
+- Capturing a response value and validating it in a subsequent request.
+- Negative testing for an unsupported currency code.
 
-Due to the scope and time constraints of the assessment, some scenarios may not be covered individually. Any deliberate omissions, their rationale, and the recommended follow-up testing will be documented within the relevant task.
+The assertions reflect the provider's observed behavior rather than assuming a specific HTTP status for every error. The public API was used for assessment purposes and is not assumed to meet production banking requirements.
+
+## Task 4 — Automation Design and Scalability
+
+Addressed automation design considerations, including maintainability, scalability, and reporting. The proposed approach considers future enhancements, parallel execution, CI/CD integration, and effective test result reporting.
+
+## Assumptions and Limitations
+
+- Assumptions are documented where requirements do not specify expected behavior.
+- Test expectations are based on the assessment requirements and available evidence.
+- Response-time thresholds used in testing are assessment criteria, not official service-level agreements.
+- Reported execution results reflect the tests performed.
 
 ## AI Usage Disclosure
 
-AI assistance was used during the assessment for drafting, organizing, and reviewing selected testing artifacts. The `ai-usage.md` file documents the AI-assisted activities, prompt summaries, the suggestions retained or rejected, and the reasons for those decisions.
+AI assistance was used for selected analysis, test design, and documentation activities. The scope of this assistance and the review approach are documented in [`ai-usage.md`](ai-usage.md).
 
-All assumptions, test scenarios, and expected results should be reviewed against the assessment requirements before being considered final.
+## Conclusion
 
-## Important Note
-
-This repository is a work in progress. Task status will be updated as additional tasks are completed.
+This assessment demonstrates a structured QA approach that combines risk analysis, functional and negative testing, API validation, and automation planning. The deliverables emphasize clear test coverage, evidence-based decisions, and maintainable documentation.
