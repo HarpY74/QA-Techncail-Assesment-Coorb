@@ -1,0 +1,65 @@
+{
+  "info": {
+    "_postman_id": "1bed30eb-4e1d-4dc3-af66-14ef9672dc4d",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "40440339"
+  },
+  "item": [
+    {
+      "name": "Get FX Rates",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "\r\nconst jsonData = pm.response.json();\r\nconst expectedCurrency =\r\n    pm.iterationData.get(\"base_currency\") ||\r\n    pm.environment.get(\"base_currency\");\r\n\r\npm.test(\"Status code is 200\", function () {\r\n    pm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"Response contains result\", function () {\r\n    pm.expect(jsonData).to.have.property(\"result\");\r\n});\r\n\r\npm.test(\"Response contains rates\", function () {\r\n    pm.expect(jsonData).to.have.property(\"rates\");\r\n});\r\n\r\npm.test(\"API result is success\", function () {\r\n    pm.expect(jsonData.result).to.eql(\"success\");\r\n});\r\n\r\npm.test(\"Base currency matches selected environment\", function () {\r\n    pm.expect(jsonData.base_code).to.eql(expectedCurrency);\r\n});\r\n\r\npm.test(\"Base currency rate is equal to 1\", function () {\r\n    pm.expect(jsonData.rates[expectedCurrency]).to.eql(1);\r\n});\r\n\r\npm.test(\"Currency rates are positive numbers\", function () {\r\n    const rates = jsonData.rates;\r\n\r\n    pm.expect(rates).to.be.an(\"object\");\r\n    pm.expect(rates).to.have.property(\"EUR\");\r\n    pm.expect(rates).to.have.property(\"GBP\");\r\n    pm.expect(rates).to.have.property(\"EGP\");\r\n\r\n    pm.expect(rates.EUR).to.be.a(\"number\").and.above(0);\r\n    pm.expect(rates.GBP).to.be.a(\"number\").and.above(0);\r\n    pm.expect(rates.EGP).to.be.a(\"number\").and.above(0);\r\n});\r\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/latest/{{base_currency}}\n",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "latest",
+            "{{base_currency}}\n"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Validate Captured FX Rate",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Negative - Unsupported Currency",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "captured_egp_rate",
+      "value": ""
+    },
+    {
+      "key": "captured_base_currency",
+      "value": ""
+    }
+  ]
+}
